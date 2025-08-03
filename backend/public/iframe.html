@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard Widget</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 15px;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .dashboard-container {
+      width: 280px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 20px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 11px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .user-list {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 15px;
+    }
+    
+    .user-list h3 {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .user-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100px;
+    }
+    
+    .user-item:last-child {
+      border-bottom: none;
+    }
+    
+    .user-name {
+      font-size: 12px;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    
+    .user-status {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+    
+    .status-active {
+      background: #10b981;
+      color: white;
+    }
+    
+    .status-inactive {
+      background: #ef4444;
+      color: white;
+    }
+    
+    .status-pending {
+      background: #f59e0b;
+      color: white;
+    }
+    
+    .notification-banner {
+      background: rgba(239, 68, 68, 0.9);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 11px;
+      font-weight: 500;
+      text-align: center;
+      animation: pulse 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .notification-banner::before {
+      content: "🚨";
+      margin-right: 6px;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .footer-text {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 10px;
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <h2>📊 User Analytics</h2>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">1,250</span>
+        <span class="stat-label">Total Users</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">890</span>
+        <span class="stat-label">Active</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">45</span>
+        <span class="stat-label">New Today</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">$12.4K</span>
+        <span class="stat-label">Revenue</span>
+      </div>
+    </div>
+    
+    <div class="user-list">
+      <h3>Recent Users</h3>
+      <div class="user-item">
+        <span class="user-name">John Doe (john@example.com)</span>
+        <span class="user-status status-active">Active</span>
+      </div>
+      <div class="user-item">
+        <span class="user-name">Jane Smith (jane@example.com)</span>
+        <span class="user-status status-inactive">Inactive</span>
+      </div>
+      <div class="user-item">
+        <span class="user-name">Bob Johnson (bob@example.com)</span>
+        <span class="user-status status-active">Active</span>
+      </div>
+      <div class="user-item">
+        <span class="user-name">Alice Brown (alice@example.com)</span>
+        <span class="user-status status-pending">Pending</span>
+      </div>
+    </div>
+    
+    <div class="notification-banner">
+      System maintenance scheduled for tonight
+    </div>
+    
+    <div class="footer-text">
+      Last updated: Just now<br>
+      Data refreshes every 30 seconds
+    </div>
+  </div>
+</body>
+</html>
