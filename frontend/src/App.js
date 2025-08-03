@@ -82,24 +82,6 @@ function App() {
 
       <div className="main-content">
         <div className="left-section">
-          <div className="widget-container">
-            <h2>📊 Analytics Widget</h2>
-            <p>This widget shows real-time user analytics and system metrics.</p>
-            <div className="iframe-wrapper">
-              <iframe
-                title="User Analytics Widget"
-                src="http://localhost:4000/iframe"
-                className="analytics-iframe"
-              />
-            </div>
-            <div className="widget-info">
-              <p><strong>Issue:</strong> The user list in the widget appears to have formatting problems. Names and emails are being cut off.</p>
-              <p><strong>Task:</strong> Fix the CSS styling so all user information is properly visible.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="right-section">
           <div className="api-section">
             <h2>🔧 API Operations Panel</h2>
             
@@ -165,6 +147,7 @@ function App() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Status</th>
+                        <th>Department</th>
                         <th>Join Date</th>
                         <th>Actions</th>
                       </tr>
@@ -180,6 +163,7 @@ function App() {
                               {user.status}
                             </span>
                           </td>
+                          <td>{user.profile.department}</td>
                           <td>{user.joinDate}</td>
                           <td>
                             <div className="action-buttons">
@@ -216,6 +200,24 @@ function App() {
                   <li><strong>Data Structure:</strong> Review and optimize the user data format</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="right-section">
+          <div className="widget-container">
+            <h2>📊 Analytics Widget</h2>
+            <p>This widget shows real-time user analytics and system metrics.</p>
+            <div className="widget-info">
+              <p><strong>Issue:</strong> The user list in the widget appears to have formatting problems. Names and emails are being cut off.</p>
+              <p><strong>Task:</strong> Fix the CSS styling so all user information is properly visible.</p>
+            </div>
+            <div className="iframe-wrapper">
+              <iframe
+                title="User Analytics Widget"
+                src="http://localhost:4000/iframe"
+                className="analytics-iframe"
+              />
             </div>
           </div>
         </div>

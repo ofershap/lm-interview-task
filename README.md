@@ -6,6 +6,9 @@ Welcome to the CX Team Operations Dashboard interview task! This is a practical 
 
 You'll be working with a React + Node.js application that simulates a customer experience team's operations dashboard. The application has **intentional bugs** that need to be fixed, and there are opportunities for **performance improvements**.
 
+![Demo Screenshot](public/demo.png)
+
+
 ### What You'll Be Working With
 
 - **Frontend**: React application with an embedded iframe widget
@@ -83,4 +86,4 @@ If you encounter any setup issues:
 
 ---
 
-**Good luck! We're excited to see your problem-solving approach and technical skills in action.** 🚀
+**Good luck! We're excited to see your problem-solving approach and technical skills in action.** 🚀`

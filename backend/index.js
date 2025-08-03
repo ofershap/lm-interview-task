@@ -25,11 +25,48 @@ app.get("/api/user-stats", (req, res) => {
 });
 
 app.get("/api/user-data", (req, res) => {
+  // mocked data
   const users = [
-    { id: 1, name: "John Doe", email: "john@example.com", status: "active", joinDate: "2023-01-15" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", status: "inactive", joinDate: "2023-02-20" },
-    { id: 3, name: "Bob Johnson", email: "bob@example.com", status: "active", joinDate: "2023-03-10" },
-    { id: 4, name: "Alice Brown", email: "alice@example.com", status: "pending", joinDate: "2023-04-05" }
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      status: "active",
+      joinDate: "2023-01-15",
+      profile: {
+        department: "Support",
+        location: "New York"
+      }
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      status: "inactive",
+      joinDate: "2023-02-20",
+      profile: {
+        department: "Sales",
+        location: "San Francisco"
+      }
+    },
+    {
+      id: 3,
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      status: "active",
+      joinDate: "2023-03-10",
+      profile: {
+        department: "Engineering",
+        location: "Austin"
+      }
+    },
+    {
+      id: 4,
+      name: "Alice Brown",
+      email: "alice@example.com",
+      status: "pending",
+      joinDate: "2023-04-05"
+    }
   ];
 
   const page = parseInt(req.query.page) || 1;
