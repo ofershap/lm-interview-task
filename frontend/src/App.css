@@ -176,8 +176,34 @@
 .loading {
   text-align: center;
   padding: 40px;
-  color: #6c757d;
   font-style: italic;
+  background: linear-gradient(
+    90deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #667eea 50%, 
+    #764ba2 75%, 
+    #667eea 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 10s ease-in-out infinite;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 200% 0%;
+  }
+  50% {
+    background-position: -200% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
 }
 
 .users-table {

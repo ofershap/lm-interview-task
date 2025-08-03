@@ -5,6 +5,7 @@ function App() {
   const [stats, setStats] = useState(null);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [statsLoading, setStatsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [statusFilter, setStatusFilter] = useState('');
   const [updateMessage, setUpdateMessage] = useState('');
@@ -15,12 +16,15 @@ function App() {
   }, [currentPage, statusFilter]);
 
   const fetchStats = async () => {
+    setStatsLoading(true);
     try {
       const response = await fetch('/api/user-stats');
       const data = await response.json();
       setStats(data);
     } catch (error) {
       console.error('Failed to fetch stats:', error);
+    } finally {
+      setStatsLoading(false);
     }
   };
 
@@ -85,7 +89,9 @@ function App() {
           <div className="api-section">
             <h2>🔧 API Operations Panel</h2>
             
-            {stats && (
+            {statsLoading ? (
+              <div className="loading">Loading stats...</div>
+            ) : stats && (
               <div className="stats-summary">
                 <h3>Current Stats</h3>
                 <div className="stats-grid">

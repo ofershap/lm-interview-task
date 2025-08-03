@@ -7,25 +7,35 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+function generateRevenueData() {
+  return new Promise((resolve) => {
+    function helper(n) {
+      if (n <= 1) return n; return helper(n - 1) + helper(n - 2);
+    }
+    setTimeout(() => {
+      const result = helper(42);
+      resolve(result);
+    }, 1000 * 10);
+  });
+}
+
 app.get("/iframe", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "iframe.html"));
 });
 
-app.get("/api/user-stats", (req, res) => {
+app.get("/api/user-stats", async (req, res) => {
   const stats = {
-    totalUsers: 1250,
-    activeUsers: 890,
-    newUsers: 45,
-    revenue: "$12,450.00"
+    sessionId: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+    totalUsers: Math.floor(Math.random() * 1000) + 100,
+    activeUsers: Math.floor(Math.random() * 100) + 10,
+    newUsers: Math.floor(Math.random() * 10) + 1,
+    revenue: "$" + await generateRevenueData()
   };
-  
-  setTimeout(() => {
-    res.json(stats);
-  }, 1000);
+
+  res.json(stats);
 });
 
 app.get("/api/user-data", (req, res) => {
-  // mocked data
   const users = [
     {
       id: 1,
@@ -108,7 +118,7 @@ app.post("/api/update-user", (req, res) => {
       userId: userId,
       newStatus: status
     });
-  }, 800);
+  }, 60000);
 });
 
 const PORT = process.env.PORT || 4000;
